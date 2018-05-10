@@ -3,9 +3,9 @@ NAME: Benjamin David Walcott
 Language: C++
 Compiler: g++
 
-These programs are intended to search a FASTA sequence of a 
+This program are intended to search a FASTA sequence of a 
 protein or dna for a specific pattern specified in either
-prosite or IUPAC format respectively.  They take in a few command
+prosite or IUPAC format respectively.  It takes in a few command
 line arguments as follows:
 
 ./hw1.exe [sequence file] [search file] [output file]
