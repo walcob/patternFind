@@ -93,6 +93,17 @@ std::vector <std::string> prosite_parse(std::istream &search){
 			}
 			tokens.push_back(token);
 		}
+		// () repeat the previous token e.g. R(7) is RRRRRRR
+		else if(tmp=='('){
+			std::string tmp_str;
+			std::getline(search,tmp_str,')');
+			int repeat = atoi(tmp_str);
+			std::string token = tokens.back();
+			// push_back repeat-1 times as the token has already been added once
+			for(int i = 1; i<repeat; ++i){
+				tokens.push_back(token);
+			}
+		}
 		else
 			std::cerr<<"Invalid search input.\n";
 		
