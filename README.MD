@@ -1,6 +1,6 @@
-#NAME: Benjamin David Walcott
-#Language: C++
-#Compiler: g++
+# NAME: Benjamin David Walcott
+# Language: C++
+# Compiler: g++
 
 These programs are intended to search a FASTA sequence of a 
 protein or dna for a specific pattern specified in either
