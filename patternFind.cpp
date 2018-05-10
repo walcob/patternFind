@@ -179,7 +179,7 @@ int main(int argc, char* argv[]){ //arguments should be ./hw1.exe sequence searc
 	std::ifstream seq;
 	seq.open(argv[1]);
 	if(!seq.is_open()){
-		std::cerr<<"Sequence input file "<<argv[1]<<" cannot be read.\n";
+		std::cerr<<"Sequence input file "<<argv[1]<<" cannot be read."<<std::endl;
 		return -1;
 	}
 	std::string sequence = read_sequence(seq);
@@ -189,7 +189,7 @@ int main(int argc, char* argv[]){ //arguments should be ./hw1.exe sequence searc
 	std::ifstream search;
 	search.open(argv[2]);
 	if(!search.is_open()){
-		std::cerr<<"Search input file "<<argv[2]<<" cannot be read.\n";
+		std::cerr<<"Search input file "<<argv[2]<<" cannot be read."<<std::endl;
 		return -1;
 	}
 	std::vector <std::string> tokens;
@@ -200,7 +200,7 @@ int main(int argc, char* argv[]){ //arguments should be ./hw1.exe sequence searc
 		tokens = dna_parse(search);
 	}
 	else{
-		std::cerr<<"Invalid search type.\nMust be protein or dna.\n";
+		std::cerr<<"Invalid search type.\nMust be protein or dna."<<std::endl;
 		return -1;
 	}
 /*	for(int i = 0; i<tokens.size();i++)
