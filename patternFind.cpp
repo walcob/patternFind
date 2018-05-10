@@ -1,4 +1,5 @@
-/*NAME: Benjamin David Walcott
+/*
+NAME: Benjamin David Walcott
 Language: C++
 Compiler: g++
 
@@ -12,9 +13,7 @@ line arguments as follows:
 [sequence file]: The file containing the FASTA formatted sequence to be analyzed 
 [search file]: The file containing either the IUPAC or Prosite format search pattern
 [output file]: The file to which to save the results
-
 */
-
 #include <iostream>
 #include <vector>
 #include <string>
