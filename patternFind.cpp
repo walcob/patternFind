@@ -65,7 +65,7 @@ std::vector <std::string> prosite_parse(std::istream &search){
 	char tmp;
 	while(!search.eof()){
 		search>>tmp;
-		if(tmp != 'x' && tmp != '[' && tmp != '{')
+		if(tmp != 'x' && tmp != '[' && tmp != '{' && tmp != '(')
 			tokens.push_back(std::string(1,tmp));
 		else if(tmp=='x')
 			tokens.push_back(aa);
@@ -97,7 +97,7 @@ std::vector <std::string> prosite_parse(std::istream &search){
 		else if(tmp=='('){
 			std::string tmp_str;
 			std::getline(search,tmp_str,')');
-			int repeat = atoi(tmp_str);
+			int repeat = std::atoi(tmp_str.c_str());
 			std::string token = tokens.back();
 			// push_back repeat-1 times as the token has already been added once
 			for(int i = 1; i<repeat; ++i){
@@ -117,7 +117,7 @@ std::vector <std::string> find_pattern(const std::string &sequence, const std::v
 	
 	std::vector <std::string> matches;
 	int size = search.size();
-	std::cout<<"size: "<<size<<std::endl<<std::endl;
+	// std::cout<<"size: "<<size<<std::endl<<std::endl;
 	for(int i = 0; i<(sequence.size()-size); i++){
 		std::string tmp;
 		for(int k = i; k<(i+size); k++)
@@ -166,7 +166,7 @@ std::vector <std::string> dna_parse(std::istream &search){
 			valid = true;
 		}
 		if(!valid)
-			std::cerr<<"Invalid search criteria.\n";
+			std::cerr<<"Invalid search criteria: "<<tmp<<std::endl;
 		tokens.push_back(token);
 	}
 	return tokens;
