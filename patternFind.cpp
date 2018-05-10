@@ -1,3 +1,20 @@
+/*NAME: Benjamin David Walcott
+Language: C++
+Compiler: g++
+
+These programs are intended to search a FASTA sequence of a 
+protein or dna for a specific pattern specified in either
+prosite or IUPAC format respectively.  They take in a few command
+line arguments as follows:
+
+./hw1.exe [sequence file] [search file] [output file]
+
+[sequence file]: The file containing the FASTA formatted sequence to be analyzed 
+[search file]: The file containing either the IUPAC or Prosite format search pattern
+[output file]: The file to which to save the results
+
+*/
+
 #include <iostream>
 #include <vector>
 #include <string>
@@ -44,7 +61,7 @@ std::vector <std::string> prosite_parse(std::istream &search){
 	//create master string of all amino acids.
 	//ambiguous tokens will be a copy of this string
 	//that will be modified according to the token
-	std::string aa = "RHKDESTNQCGPAVILMFYW";
+	std::string aa = "ACDEFGHIKLMNPQRSTVWY";
 	std::vector <std::string> tokens;
 	char tmp;
 	while(!search.eof()){
@@ -151,8 +168,12 @@ std::vector <std::string> dna_parse(std::istream &search){
 int main(int argc, char* argv[]){ //arguments should be ./hw1.exe sequence search protein or dna
 	
 	//ensure proper command arguments
-	if(argc != 4)
-		std::cerr<<"Missing arguments\n";
+	if(argc != 4){
+		std::cerr<<argc<<" arguments given, expected 4"<<std::endl;
+		std::cerr<<"Usage:"<<std::endl;
+		std::cerr<<argv[0]<<" sequence_file search_file protein/dna"<<std::endl;
+		return -1;
+	}
 	
 	//test read_sequence()
 	std::ifstream seq;
